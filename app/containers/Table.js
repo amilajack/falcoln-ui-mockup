@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import TableRow from '../components/TableRow';
-import styles from './Table.css';
+import './Table.css';
+
 
 export default class Table extends Component {
   constructor(props) {
@@ -34,9 +35,14 @@ export default class Table extends Component {
 
   render() {
     const tableRows = this.state.data.map(({ input, date }) =>
-      <TableRow input={input} time={`${date.getHours()}:${date.getMinutes()}.${date.getSeconds()}`}date={date.toDateString()} key={date.getTime()} />
+      <TableRow
+        input={input}
+        time={`${date.getHours()}:${date.getMinutes()}.${date.getSeconds()}`}
+        date={date.toDateString()}
+        key={date.getTime()}
+      />
     );
-    console.log(tableRows);
+
     return (
       <div data-tid="container">
         <table>
